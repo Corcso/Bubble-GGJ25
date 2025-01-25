@@ -33,4 +33,5 @@ characterWidth = 0.4
 materialForText = ExtResource("12_w24y1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("12_w24y1")
 mesh = ExtResource("4_atmxd")

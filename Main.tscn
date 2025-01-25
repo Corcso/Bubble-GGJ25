@@ -30,7 +30,7 @@ visible = false
 environment = SubResource("Environment_5pem6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0549503, 0.998489, 0, -0.998489, 0.0549503, 0, 3.77743, 0)
+transform = Transform3D(1, 0, 0, 0, 0.859906, 0.510453, 0, -0.510453, 0.859906, 0, 3.77743, 0)
 shadow_enabled = true
 shadow_bias = 0.05
 

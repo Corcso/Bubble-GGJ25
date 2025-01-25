@@ -93,6 +93,6 @@ public partial class GameManager : Node
 		averageTotal += timeTookToPop;
 		averageNumber++;
 
-        if(reactionTimeMode) scoreText.UpdateText((averageTotal / averageNumber).ToString());
+        if(reactionTimeMode) scoreText.UpdateText((Mathf.Round(averageTotal / averageNumber * 1000) / 1000.0f).ToString());
     }
 }

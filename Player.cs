@@ -41,6 +41,8 @@ public partial class Player : XROrigin3D
 
     private void Recentre() {
         // Recenter with an assumed height of 1.8 meters. 
-        GlobalPosition = new Vector3(0, 1.8f, 0) - GetNode<Node3D>("./Head").GlobalPosition;
+        //GlobalPosition = new Vector3(0, 1.8f, 0) - GetNode<Node3D>("./Head").GlobalPosition;
+        XRServer.CenterOnHmd( XRServer.RotationMode.DontResetRotation, true);
+        
     }
 }

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class GameManager : Node
 {
@@ -43,6 +44,9 @@ public partial class GameManager : Node
 		timeUntilNextSpawn = rng.RandfRange(spawnSpeed.X, spawnSpeed.Y);
 	}
 
+	[Export]
+	bool reactionTimeMode = false;
+
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
@@ -77,7 +81,18 @@ public partial class GameManager : Node
 	public void AddScore(int scoreToAdd) {
 		score += scoreToAdd;
 
-
-		scoreText.UpdateText(score.ToString());
+		if(!reactionTimeMode) scoreText.UpdateText(score.ToString());
 	}
+
+	float averageTotal = 0;
+	float averageNumber = 0;
+
+    // For the reaction time gamemode. 
+    public void AddTime(float timeTookToPop)
+    {
+		averageTotal += timeTookToPop;
+		averageNumber++;
+
+        if(reactionTimeMode) scoreText.UpdateText((averageTotal / averageNumber).ToString());
+    }
 }

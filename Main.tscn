@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://xh00l2ia7rk"]
+[gd_scene load_steps=8 format=3 uid="uid://xh00l2ia7rk"]
 
+[ext_resource type="PackedScene" uid="uid://bueeygvlq3wcg" path="res://Scenes/Reaction Time Game.tscn" id="1_0eap1"]
 [ext_resource type="PackedScene" uid="uid://5ullautqhaoo" path="res://Player.tscn" id="1_c0u3j"]
 [ext_resource type="PackedScene" uid="uid://dilvqhylyngtt" path="res://Scenes/Game.tscn" id="1_gap5g"]
 [ext_resource type="PackedScene" uid="uid://ck00w6icrlubp" path="res://Scenes/Main Menu.tscn" id="2_o8vre"]
@@ -20,7 +21,10 @@ sky = SubResource("Sky_jj74o")
 
 [node name="Game Root" type="Node3D"]
 
+[node name="Game2" parent="." instance=ExtResource("1_0eap1")]
+
 [node name="Game" parent="." instance=ExtResource("1_gap5g")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5pem6")

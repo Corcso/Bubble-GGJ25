@@ -23,10 +23,15 @@ public partial class GameManager : Node
 
 	RandomNumberGenerator rng;
 
+	// For the bubbles sprite pop lazy billboarding method. 
+	Node3D XRHeadReference;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		rng = new RandomNumberGenerator();
+
+		XRHeadReference = GetTree().Root.GetNode<Node3D>("./Game Root/XR Player/Head");
 
 		timeUntilNextSpawn = rng.RandfRange(spawnSpeed.X, spawnSpeed.Y);
 	}
@@ -56,8 +61,10 @@ public partial class GameManager : Node
 		newBubble.gameManager = this;
 		newBubble.myWorth = 1;
 		newBubble.pitchModulation = rng.RandfRange(0.9f, 1.1f);
+		newBubble.XRHeadReference = XRHeadReference;
 
-		GetParent().AddChild(newBubble);
+
+        GetParent().AddChild(newBubble);
 	}
 
 	public void AddScore(int scoreToAdd) {

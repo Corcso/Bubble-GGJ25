@@ -9,19 +9,27 @@ public partial class Bubble : Area3D
 
 	public GameManager gameManager;
 
+	// Lazy billboarding method. 
+	public Node3D XRHeadReference;
+
 	public int myWorth;
 
 	// Pop pitch modulation, set by the game manager as it already has a RNG, doing it this way as it saves making an rng object per bubble. 
 	public float pitchModulation;
 
+	AnimatedSprite3D myPopSprite;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		AreaEntered += (Area3D area) => {
+		myPopSprite = GetNode<AnimatedSprite3D>("./PopSprite");
+
+        AreaEntered += (Area3D area) => {
 			GetNode<AudioStreamPlayer3D>("./PopSFX").Play();
-			GetNode<CpuParticles3D>("./PopParticles").Emitting = true;
+            myPopSprite.Show();
+            myPopSprite.Play();
 			GetNode<MeshInstance3D>("./Mesh").Hide();
-			gameManager.AddScore(myWorth);
+			if(gameManager != null) gameManager.AddScore(myWorth);
 			dead = true;
 		};
 	}
@@ -33,11 +41,12 @@ public partial class Bubble : Area3D
 	{
 		Position += Vector3.Up * speed * (float)delta;
 
-		if (dead) {
+		
 
-			//Scale *= timeInDead * 3;
-			timeInDead += (float)delta;
-			if(timeInDead > 0.33) QueueFree();
+        if (dead) {
+            myPopSprite.LookAt(XRHeadReference.Position);
+            timeInDead += (float)delta;
+			if(timeInDead > 0.2) QueueFree();
 		}
 
 	}

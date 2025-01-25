@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://d2frhwtkby3k7"]
+
+[ext_resource type="Texture2D" uid="uid://citqm1xmcqqo" path="res://Materials/Textures/BubblePop_Frame1.png" id="1_n7vg8"]
+[ext_resource type="Texture2D" uid="uid://dexjfrie4spkl" path="res://Materials/Textures/BubblePop_Frame2.png" id="2_ro0s5"]
+[ext_resource type="Texture2D" uid="uid://cwqi7btnxnsxv" path="res://Materials/Textures/BubblePop_Frame3.png" id="3_w4863"]
+[ext_resource type="Texture2D" uid="uid://cekyc0sikdpry" path="res://Materials/Textures/BubblePop_Frame4.png" id="4_vcg52"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n7vg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ro0s5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w4863")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vcg52")
+}],
+"loop": true,
+"name": &"Pop",
+"speed": 20.0
+}]

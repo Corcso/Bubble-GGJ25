@@ -3,15 +3,12 @@
 [ext_resource type="Script" path="res://Scripts/Bubble.cs" id="1_dgaui"]
 [ext_resource type="Material" uid="uid://h7pi64t33dqm" path="res://Materials/BubbleOnline.tres" id="2_ivrv8"]
 [ext_resource type="AudioStream" uid="uid://2veltvf16h8w" path="res://Sounds/BubblePop.wav" id="3_n33mo"]
+[ext_resource type="SpriteFrames" uid="uid://d2frhwtkby3k7" path="res://Materials/Textures/BubblePop_Animation.tres" id="4_grmr4"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_k0ka5"]
 material = ExtResource("2_ivrv8")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5nedn"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_bjngj"]
-radius = 0.01
-height = 0.02
 
 [node name="Bubble" type="Area3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
@@ -27,13 +24,8 @@ shape = SubResource("SphereShape3D_5nedn")
 [node name="PopSFX" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_n33mo")
 
-[node name="PopParticles" type="CPUParticles3D" parent="."]
-emitting = false
-lifetime = 0.33
-one_shot = true
-speed_scale = 6.45
-mesh = SubResource("SphereMesh_bjngj")
-direction = Vector3(0, 1, 0)
-spread = 106.04
-gravity = Vector3(0, 0, 0)
-initial_velocity_max = 1.0
+[node name="PopSprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+visible = false
+sprite_frames = ExtResource("4_grmr4")
+animation = &"Pop"

@@ -25,6 +25,7 @@ public partial class Bubble : Area3D
 		myPopSprite = GetNode<AnimatedSprite3D>("./PopSprite");
 
         AreaEntered += (Area3D area) => {
+			if (dead) return;
 			GetNode<AudioStreamPlayer3D>("./PopSFX").Play();
             myPopSprite.Show();
             myPopSprite.Play();

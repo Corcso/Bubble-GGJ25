@@ -10,13 +10,13 @@ public partial class Bubble : Area3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-        AreaEntered += (Area3D area) => {
+		AreaEntered += (Area3D area) => {
 			GetNode<AudioStreamPlayer3D>("./PopSFX").Play();
-            GetNode<CpuParticles3D>("./PopParticles").Emitting = true;
-            GetNode<MeshInstance3D>("./Mesh").Hide();
+			GetNode<CpuParticles3D>("./PopParticles").Emitting = true;
+			GetNode<MeshInstance3D>("./Mesh").Hide();
 			dead = true;
-        };
-    }
+		};
+	}
 
 	float speed = 0.1f;
 
@@ -32,5 +32,5 @@ public partial class Bubble : Area3D
 			if(timeInDead > 0.33) QueueFree();
 		}
 
-    }
+	}
 }

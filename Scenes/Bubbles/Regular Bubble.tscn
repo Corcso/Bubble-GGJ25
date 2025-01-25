@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://nbxxnerqw1b2"]
+
+[ext_resource type="Script" path="res://Scenes/Bubble.cs" id="1_aarke"]
+[ext_resource type="Material" uid="uid://h7pi64t33dqm" path="res://Materials/BubbleOnline.tres" id="2_ivrv8"]
+[ext_resource type="AudioStream" uid="uid://2veltvf16h8w" path="res://Sounds/BubblePop.wav" id="3_n33mo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_k0ka5"]
+material = ExtResource("2_ivrv8")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5nedn"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bjngj"]
+radius = 0.01
+height = 0.02
+
+[node name="Bubble" type="Area3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+script = ExtResource("1_aarke")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_k0ka5")
+skeleton = NodePath("../..")
+
+[node name="Shape" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5nedn")
+
+[node name="PopSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_n33mo")
+
+[node name="PopParticles" type="CPUParticles3D" parent="."]
+emitting = false
+lifetime = 0.33
+one_shot = true
+speed_scale = 6.45
+mesh = SubResource("SphereMesh_bjngj")
+direction = Vector3(0, 1, 0)
+spread = 106.04
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 1.0

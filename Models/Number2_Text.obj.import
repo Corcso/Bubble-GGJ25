@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://3x28s8tqt3vp"
+path="res://.godot/imported/Number2_Text.obj-dab04b01cdb83e2a7dbce270fce06406.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Number2_Text.obj-dab04b01cdb83e2a7dbce270fce06406.mesh"]
+
+source_file="res://Models/Number2_Text.obj"
+dest_files=["res://.godot/imported/Number2_Text.obj-dab04b01cdb83e2a7dbce270fce06406.mesh", "res://.godot/imported/Number2_Text.obj-dab04b01cdb83e2a7dbce270fce06406.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

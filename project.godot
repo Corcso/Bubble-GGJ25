@@ -19,6 +19,10 @@ config/icon="res://Materials/Textures/icon.svg"
 
 project/assembly_name="BubbleGGJ25"
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [rendering]
 
 lights_and_shadows/directional_shadow/size=16384

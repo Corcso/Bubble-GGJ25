@@ -1,0 +1,36 @@
+[gd_scene load_steps=14 format=3 uid="uid://c1cpwlg4g2am"]
+
+[ext_resource type="Script" path="res://Scripts/TextRenderer3D.cs" id="1_4sobn"]
+[ext_resource type="ArrayMesh" uid="uid://0x4tedhi066y" path="res://Models/Number0_Text.obj" id="2_qblrf"]
+[ext_resource type="ArrayMesh" uid="uid://c8ao8vnkv50de" path="res://Models/Number1_Text.obj" id="3_oksc0"]
+[ext_resource type="ArrayMesh" uid="uid://3x28s8tqt3vp" path="res://Models/Number2_Text.obj" id="4_atmxd"]
+[ext_resource type="ArrayMesh" uid="uid://d3eq3f5refj4p" path="res://Models/Number9_Text.obj" id="4_v34xb"]
+[ext_resource type="ArrayMesh" uid="uid://dvnmv8qxlbtkm" path="res://Models/Number3_Text.obj" id="5_exgan"]
+[ext_resource type="ArrayMesh" uid="uid://bcps141q73gei" path="res://Models/Number4_Text.obj" id="6_eaobb"]
+[ext_resource type="ArrayMesh" uid="uid://cpasafckjutsk" path="res://Models/Number5_Text.obj" id="7_a3byd"]
+[ext_resource type="ArrayMesh" uid="uid://7koe55mnydbe" path="res://Models/Number6_Text.obj" id="8_wy818"]
+[ext_resource type="ArrayMesh" uid="uid://nrgfut0t6iu2" path="res://Models/Number7_Text.obj" id="9_rjr18"]
+[ext_resource type="ArrayMesh" uid="uid://mymldeyuwamb" path="res://Models/Number8_Text.obj" id="10_jex7l"]
+[ext_resource type="ArrayMesh" uid="uid://ywtjiudipoam" path="res://Models/DecimalPoint_Text.obj" id="12_dsjsf"]
+[ext_resource type="Material" uid="uid://oxpbad4dxbce" path="res://Materials/Score Text.tres" id="12_w24y1"]
+
+[node name="3D Text Object" type="Node3D"]
+script = ExtResource("1_4sobn")
+characterMeshes = {
+46: ExtResource("12_dsjsf"),
+48: ExtResource("2_qblrf"),
+49: ExtResource("3_oksc0"),
+50: ExtResource("4_atmxd"),
+51: ExtResource("5_exgan"),
+52: ExtResource("6_eaobb"),
+53: ExtResource("7_a3byd"),
+54: ExtResource("8_wy818"),
+55: ExtResource("9_rjr18"),
+56: ExtResource("10_jex7l"),
+57: ExtResource("4_v34xb")
+}
+characterWidth = 0.4
+materialForText = ExtResource("12_w24y1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_atmxd")

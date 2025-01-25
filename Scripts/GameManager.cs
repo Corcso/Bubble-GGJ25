@@ -26,12 +26,19 @@ public partial class GameManager : Node
 	// For the bubbles sprite pop lazy billboarding method. 
 	Node3D XRHeadReference;
 
+	// Score text for rendering the players score. 
+	TextRenderer3D scoreText;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		rng = new RandomNumberGenerator();
 
 		XRHeadReference = GetTree().Root.GetNode<Node3D>("./Game Root/XR Player/Head");
+
+		// Get score text 
+		scoreText = GetParent().GetNode<TextRenderer3D>("./Score Text");
+		scoreText.UpdateText("0");
 
 		timeUntilNextSpawn = rng.RandfRange(spawnSpeed.X, spawnSpeed.Y);
 	}
@@ -70,6 +77,7 @@ public partial class GameManager : Node
 	public void AddScore(int scoreToAdd) {
 		score += scoreToAdd;
 
-		// Todo Display Numbers
+
+		scoreText.UpdateText(score.ToString());
 	}
 }

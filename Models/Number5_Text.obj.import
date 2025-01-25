@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cpasafckjutsk"
+path="res://.godot/imported/Number5_Text.obj-e2d1722890175e9a6dcce6204219d39d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Number5_Text.obj-e2d1722890175e9a6dcce6204219d39d.mesh"]
+
+source_file="res://Models/Number5_Text.obj"
+dest_files=["res://.godot/imported/Number5_Text.obj-e2d1722890175e9a6dcce6204219d39d.mesh", "res://.godot/imported/Number5_Text.obj-e2d1722890175e9a6dcce6204219d39d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

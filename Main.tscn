@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://xh00l2ia7rk"]
+[gd_scene load_steps=8 format=3 uid="uid://xh00l2ia7rk"]
 
+[ext_resource type="PackedScene" uid="uid://bueeygvlq3wcg" path="res://Scenes/Reaction Time Game.tscn" id="1_0eap1"]
 [ext_resource type="PackedScene" uid="uid://5ullautqhaoo" path="res://Player.tscn" id="1_c0u3j"]
 [ext_resource type="PackedScene" uid="uid://dilvqhylyngtt" path="res://Scenes/Game.tscn" id="1_gap5g"]
 [ext_resource type="PackedScene" uid="uid://ck00w6icrlubp" path="res://Scenes/Main Menu.tscn" id="2_o8vre"]
@@ -20,15 +21,18 @@ sky = SubResource("Sky_jj74o")
 
 [node name="Game Root" type="Node3D"]
 
+[node name="Game2" parent="." instance=ExtResource("1_0eap1")]
+
 [node name="Game" parent="." instance=ExtResource("1_gap5g")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5pem6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0549503, 0.998489, 0, -0.998489, 0.0549503, 0, 3.77743, 0)
+transform = Transform3D(1, 0, 0, 0, 0.859906, 0.510453, 0, -0.510453, 0.859906, 0, 3.77743, 0)
 shadow_enabled = true
-shadow_bias = 0.05
+shadow_bias = 0.01
 
 [node name="XR Player" parent="." instance=ExtResource("1_c0u3j")]
 

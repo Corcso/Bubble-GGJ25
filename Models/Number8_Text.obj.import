@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://mymldeyuwamb"
+path="res://.godot/imported/Number8_Text.obj-05489d8af6642b6f753d23853263d898.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Number8_Text.obj-05489d8af6642b6f753d23853263d898.mesh"]
+
+source_file="res://Models/Number8_Text.obj"
+dest_files=["res://.godot/imported/Number8_Text.obj-05489d8af6642b6f753d23853263d898.mesh", "res://.godot/imported/Number8_Text.obj-05489d8af6642b6f753d23853263d898.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

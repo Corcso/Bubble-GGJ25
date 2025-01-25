@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class GameManager : Node
 {
@@ -26,6 +27,9 @@ public partial class GameManager : Node
 	// For the bubbles sprite pop lazy billboarding method. 
 	Node3D XRHeadReference;
 
+	// Score text for rendering the players score. 
+	TextRenderer3D scoreText;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -33,8 +37,15 @@ public partial class GameManager : Node
 
 		XRHeadReference = GetTree().Root.GetNode<Node3D>("./Game Root/XR Player/Head");
 
+		// Get score text 
+		scoreText = GetParent().GetNode<TextRenderer3D>("./Score Text");
+		scoreText.UpdateText("0");
+
 		timeUntilNextSpawn = rng.RandfRange(spawnSpeed.X, spawnSpeed.Y);
 	}
+
+	[Export]
+	bool reactionTimeMode = false;
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -70,6 +81,18 @@ public partial class GameManager : Node
 	public void AddScore(int scoreToAdd) {
 		score += scoreToAdd;
 
-		// Todo Display Numbers
+		if(!reactionTimeMode) scoreText.UpdateText(score.ToString());
 	}
+
+	float averageTotal = 0;
+	float averageNumber = 0;
+
+    // For the reaction time gamemode. 
+    public void AddTime(float timeTookToPop)
+    {
+		averageTotal += timeTookToPop;
+		averageNumber++;
+
+        if(reactionTimeMode) scoreText.UpdateText((Mathf.Round(averageTotal / averageNumber * 1000) / 1000.0f).ToString());
+    }
 }

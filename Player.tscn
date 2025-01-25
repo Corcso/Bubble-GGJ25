@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://5ullautqhaoo"]
+[gd_scene load_steps=9 format=3 uid="uid://5ullautqhaoo"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_dj3m5"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_xxa8n"]
+[ext_resource type="Material" uid="uid://ds0kphqlog4pm" path="res://Materials/Paws.tres" id="2_ixlfj"]
+[ext_resource type="ArrayMesh" uid="uid://ck0bqd2ntkl3h" path="res://Models/TerriblePaw_Palm.obj" id="3_xpm0d"]
+[ext_resource type="Material" uid="uid://bsmo3jm1eda5a" path="res://Materials/Claws.tres" id="4_cj0my"]
+[ext_resource type="ArrayMesh" uid="uid://bk4x41827rt6" path="res://Models/TerriblePaw_Claws.obj" id="5_cv6jx"]
+[ext_resource type="Material" uid="uid://dnioemeofliky" path="res://Materials/Pads.tres" id="6_i5v60"]
+[ext_resource type="ArrayMesh" uid="uid://bolo03beeehp5" path="res://Models/TerriblePaw_Pads.obj" id="7_3b1hk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_w6x6i"]
-radius = 0.05
+radius = 0.09187
 
 [node name="XR Player" type="XROrigin3D"]
 script = ExtResource("1_dj3m5")
@@ -16,26 +20,56 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 [node name="AudioListener3D" type="AudioListener3D" parent="Head"]
 
 [node name="Left Hand" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 tracker = &"left_hand"
 
 [node name="Mesh" type="MeshInstance3D" parent="Left Hand"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("SphereMesh_xxa8n")
+transform = Transform3D(-1.50996e-09, -0.02, 3.01992e-09, -0.02, 1.50996e-09, -1.52855e-16, -7.51425e-17, -3.01992e-09, -0.02, 0, 0, 0)
+material_override = ExtResource("2_ixlfj")
+mesh = ExtResource("3_xpm0d")
+skeleton = NodePath("../../Right Hand")
+
+[node name="Mesh2" type="MeshInstance3D" parent="Left Hand"]
+transform = Transform3D(-1.50996e-09, -0.02, 3.01992e-09, -0.02, 1.50996e-09, -1.52855e-16, -7.51425e-17, -3.01992e-09, -0.02, 0, 0, 0)
+material_override = ExtResource("4_cj0my")
+mesh = ExtResource("5_cv6jx")
+skeleton = NodePath("../../Right Hand")
+
+[node name="Mesh3" type="MeshInstance3D" parent="Left Hand"]
+transform = Transform3D(-1.50996e-09, -0.02, 3.01992e-09, -0.02, 1.50996e-09, -1.52855e-16, -7.51425e-17, -3.01992e-09, -0.02, 0, 0, 0)
+material_override = ExtResource("6_i5v60")
+mesh = ExtResource("7_3b1hk")
 skeleton = NodePath("../../Right Hand")
 
 [node name="Collider" type="Area3D" parent="Left Hand"]
 
 [node name="Shape" type="CollisionShape3D" parent="Left Hand/Collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0678533)
 shape = SubResource("SphereShape3D_w6x6i")
 
 [node name="Right Hand" type="XRController3D" parent="."]
 tracker = &"right_hand"
 
-[node name="Mesh" type="MeshInstance3D" parent="Right Hand"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("SphereMesh_xxa8n")
-
 [node name="Collider" type="Area3D" parent="Right Hand"]
 
 [node name="Shape" type="CollisionShape3D" parent="Right Hand/Collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0678533)
 shape = SubResource("SphereShape3D_w6x6i")
+
+[node name="Mesh4" type="MeshInstance3D" parent="Right Hand"]
+transform = Transform3D(8.74228e-10, 0.02, -3.01992e-09, 0.02, -8.74228e-10, -1.11155e-16, -2.43159e-16, -3.01992e-09, -0.02, 0, 0, 0)
+material_override = ExtResource("2_ixlfj")
+mesh = ExtResource("3_xpm0d")
+skeleton = NodePath("../../Right Hand")
+
+[node name="Mesh5" type="MeshInstance3D" parent="Right Hand"]
+transform = Transform3D(8.74228e-10, 0.02, -3.01992e-09, 0.02, -8.74228e-10, -1.11155e-16, -2.43159e-16, -3.01992e-09, -0.02, 0, 0, 0)
+material_override = ExtResource("4_cj0my")
+mesh = ExtResource("5_cv6jx")
+skeleton = NodePath("../../Right Hand")
+
+[node name="Mesh6" type="MeshInstance3D" parent="Right Hand"]
+transform = Transform3D(8.74228e-10, 0.02, -3.01992e-09, 0.02, -8.74228e-10, -1.11155e-16, -2.43159e-16, -3.01992e-09, -0.02, 0, 0, 0)
+material_override = ExtResource("6_i5v60")
+mesh = ExtResource("7_3b1hk")
+skeleton = NodePath("../../Right Hand")

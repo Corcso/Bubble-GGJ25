@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c02qmaufs4o60"
+path="res://.godot/imported/FrenzyText.obj-9faa3be73ba8cec6ab77857604c23151.mesh"
+
+[deps]
+
+files=["res://.godot/imported/FrenzyText.obj-9faa3be73ba8cec6ab77857604c23151.mesh"]
+
+source_file="res://Models/FrenzyText.obj"
+dest_files=["res://.godot/imported/FrenzyText.obj-9faa3be73ba8cec6ab77857604c23151.mesh", "res://.godot/imported/FrenzyText.obj-9faa3be73ba8cec6ab77857604c23151.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

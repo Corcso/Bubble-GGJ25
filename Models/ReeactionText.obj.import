@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://fhp81o4g3d5h"
+path="res://.godot/imported/ReeactionText.obj-d0026006945ad7a544e1f913c74f205c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ReeactionText.obj-d0026006945ad7a544e1f913c74f205c.mesh"]
+
+source_file="res://Models/ReeactionText.obj"
+dest_files=["res://.godot/imported/ReeactionText.obj-d0026006945ad7a544e1f913c74f205c.mesh", "res://.godot/imported/ReeactionText.obj-d0026006945ad7a544e1f913c74f205c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

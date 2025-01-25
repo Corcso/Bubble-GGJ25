@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dilvqhylyngtt"]
+[gd_scene load_steps=11 format=3 uid="uid://dilvqhylyngtt"]
 
 [ext_resource type="PackedScene" uid="uid://c1cpwlg4g2am" path="res://Scenes/TextRenderer3D.tscn" id="1_83mak"]
 [ext_resource type="PackedScene" uid="uid://nbxxnerqw1b2" path="res://Scenes/Bubbles/Regular Bubble.tscn" id="1_pq6uc"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="2_enirg"]
+[ext_resource type="Script" path="res://Scripts/PushableButton.cs" id="4_1b3fy"]
+[ext_resource type="Material" uid="uid://d2dqjmalrgo2n" path="res://Materials/Button.tres" id="5_xcprq"]
+[ext_resource type="ArrayMesh" uid="uid://bed7vw28756kn" path="res://Models/Main Menu Button.obj" id="6_8tl4o"]
+[ext_resource type="Material" uid="uid://ky5fa3vol4rq" path="res://Materials/Menu Text.tres" id="7_v841y"]
+[ext_resource type="ArrayMesh" uid="uid://ch2c8jstqr6xq" path="res://Models/Exit 3D Text.obj" id="8_agidu"]
+[ext_resource type="Script" path="res://Scenes/MenuQuitter.cs" id="9_jhd2i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o8x2o"]
+size = Vector3(3.069, 0.62, 1.114)
 
 [node name="Game" type="Node3D"]
 
@@ -14,7 +23,7 @@ script = ExtResource("2_enirg")
 regularBubble = ExtResource("1_pq6uc")
 spawnAreaHalfDimentions = Vector3(0.5, 1, 0.5)
 spawnOrigin = Vector3(0, 1, 0)
-spawnSpeed = Vector2(0.5, 1.5)
+spawnSpeed = Vector2(0.1, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5.62744)
@@ -23,3 +32,24 @@ visible = false
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.198376, 0.980126, 0, -0.980126, 0.198376, 0, 0, 0)
 visible = false
+
+[node name="Exit Button" type="Area3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 7.57103e-08, -0.5, -0.866025, -4.37114e-08, -0.866025, 0.5, 0, 2.72689, 1.36858)
+script = ExtResource("4_1b3fy")
+
+[node name="Button" type="MeshInstance3D" parent="Exit Button"]
+material_override = ExtResource("5_xcprq")
+mesh = ExtResource("6_8tl4o")
+
+[node name="Exit Text" type="MeshInstance3D" parent="Exit Button"]
+material_override = ExtResource("7_v841y")
+mesh = ExtResource("8_agidu")
+
+[node name="Collider" type="CollisionShape3D" parent="Exit Button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00244141, 0.188721, -0.00665283)
+shape = SubResource("BoxShape3D_o8x2o")
+
+[node name="MenuQuitter" type="Node" parent="."]
+script = ExtResource("9_jhd2i")
+
+[connection signal="ButtonPressed" from="Exit Button" to="MenuQuitter" method="_on_exit_button_button_pressed"]

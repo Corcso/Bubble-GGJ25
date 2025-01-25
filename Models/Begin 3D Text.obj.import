@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cylpnx7wg7h4m"
+path="res://.godot/imported/Begin 3D Text.obj-862c34abd5a6309d407ca003c0ff7e58.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Begin 3D Text.obj-862c34abd5a6309d407ca003c0ff7e58.mesh"]
+
+source_file="res://Models/Begin 3D Text.obj"
+dest_files=["res://.godot/imported/Begin 3D Text.obj-862c34abd5a6309d407ca003c0ff7e58.mesh", "res://.godot/imported/Begin 3D Text.obj-862c34abd5a6309d407ca003c0ff7e58.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://ck00w6icrlubp"]
+
+[ext_resource type="Script" path="res://Scenes/PushableButton.cs" id="1_ihctd"]
+[ext_resource type="Material" uid="uid://d2dqjmalrgo2n" path="res://Materials/Button.tres" id="1_kuuks"]
+[ext_resource type="Script" path="res://Scenes/MainMenu.cs" id="1_myair"]
+[ext_resource type="ArrayMesh" uid="uid://bed7vw28756kn" path="res://Models/Main Menu Button.obj" id="2_agb4q"]
+[ext_resource type="Material" uid="uid://ky5fa3vol4rq" path="res://Materials/Menu Text.tres" id="3_yw2o6"]
+[ext_resource type="ArrayMesh" uid="uid://cylpnx7wg7h4m" path="res://Models/Begin 3D Text.obj" id="4_lorju"]
+[ext_resource type="ArrayMesh" uid="uid://ch2c8jstqr6xq" path="res://Models/Exit 3D Text.obj" id="5_sr40g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cs4wl"]
+size = Vector3(3.069, 0.62, 1.114)
+
+[node name="Main Menu" type="Node3D"]
+script = ExtResource("1_myair")
+
+[node name="Begin Button" type="Area3D" parent="."]
+script = ExtResource("1_ihctd")
+
+[node name="Button" type="MeshInstance3D" parent="Begin Button"]
+material_override = ExtResource("1_kuuks")
+mesh = ExtResource("2_agb4q")
+
+[node name="Begin Text" type="MeshInstance3D" parent="Begin Button"]
+material_override = ExtResource("3_yw2o6")
+mesh = ExtResource("4_lorju")
+
+[node name="Collider" type="CollisionShape3D" parent="Begin Button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002, 0.19, -0.007)
+shape = SubResource("BoxShape3D_cs4wl")
+
+[node name="Exit Button" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.36858)
+script = ExtResource("1_ihctd")
+
+[node name="Button" type="MeshInstance3D" parent="Exit Button"]
+material_override = ExtResource("1_kuuks")
+mesh = ExtResource("2_agb4q")
+
+[node name="Exit Text" type="MeshInstance3D" parent="Exit Button"]
+material_override = ExtResource("3_yw2o6")
+mesh = ExtResource("5_sr40g")
+
+[node name="Collider" type="CollisionShape3D" parent="Exit Button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00244141, 0.188721, -0.00665283)
+shape = SubResource("BoxShape3D_cs4wl")
+
+[connection signal="ButtonPressed" from="Exit Button" to="." method="_on_exit_button_button_pressed"]

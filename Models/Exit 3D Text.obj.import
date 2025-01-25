@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ch2c8jstqr6xq"
+path="res://.godot/imported/Exit 3D Text.obj-894168b11c917170c8af11f9c6c369bc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Exit 3D Text.obj-894168b11c917170c8af11f9c6c369bc.mesh"]
+
+source_file="res://Models/Exit 3D Text.obj"
+dest_files=["res://.godot/imported/Exit 3D Text.obj-894168b11c917170c8af11f9c6c369bc.mesh", "res://.godot/imported/Exit 3D Text.obj-894168b11c917170c8af11f9c6c369bc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

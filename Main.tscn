@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://xh00l2ia7rk"]
+
+[ext_resource type="PackedScene" uid="uid://5ullautqhaoo" path="res://Player.tscn" id="1_c0u3j"]
+[ext_resource type="PackedScene" uid="uid://dilvqhylyngtt" path="res://Scenes/Game.tscn" id="1_gap5g"]
+[ext_resource type="PackedScene" uid="uid://ck00w6icrlubp" path="res://Scenes/Main Menu.tscn" id="2_o8vre"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ixq0"]
+sky_top_color = Color(0.498039, 0.341176, 0.776471, 1)
+sky_horizon_color = Color(0.345098, 0.698039, 0.890196, 1)
+ground_bottom_color = Color(0.466667, 0.647059, 0.952941, 1)
+ground_horizon_color = Color(0.345098, 0.698039, 0.890196, 1)
+sun_angle_max = 0.0
+
+[sub_resource type="Sky" id="Sky_jj74o"]
+sky_material = SubResource("ProceduralSkyMaterial_6ixq0")
+
+[sub_resource type="Environment" id="Environment_5pem6"]
+background_mode = 2
+sky = SubResource("Sky_jj74o")
+
+[node name="Game Root" type="Node3D"]
+
+[node name="Game" parent="." instance=ExtResource("1_gap5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0385598, 0.393485, -1.23206)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5pem6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0549503, 0.998489, 0, -0.998489, 0.0549503, 0, 3.77743, 0)
+shadow_enabled = true
+shadow_bias = 0.05
+
+[node name="XR Player" parent="." instance=ExtResource("1_c0u3j")]
+
+[node name="Main Menu" parent="." instance=ExtResource("2_o8vre")]
+transform = Transform3D(0.2, 0, 0, 0, 0.147924, -0.134605, 0, 0.134605, 0.147924, 0, 1.06191, -1.12188)
+visible = false

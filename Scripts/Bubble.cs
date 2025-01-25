@@ -26,7 +26,7 @@ public partial class Bubble : Area3D
 		myPopSprite = GetNode<AnimatedSprite3D>("./PopSprite");
 
         AreaEntered += (Area3D area) => {
-			Pop();
+			Pop(area.GetParentOrNull<XRController3D>() != null);
 		};
 	}
 
@@ -50,13 +50,13 @@ public partial class Bubble : Area3D
 		if (timeAlive >= 10.0f) Pop();
 	}
 
-	public void Pop() {
+	public void Pop(bool playerPopped = false) {
         if (dead) return;
-        GetNode<AudioStreamPlayer3D>("./PopSFX").Play();
+        if(playerPopped) GetNode<AudioStreamPlayer3D>("./PopSFX").Play();
         myPopSprite.Show();
         myPopSprite.Play();
         GetNode<MeshInstance3D>("./Mesh").Hide();
-        if (gameManager != null)
+        if (gameManager != null && playerPopped)
         {
             gameManager.AddScore(myWorth);
             gameManager.AddTime(timeAlive);

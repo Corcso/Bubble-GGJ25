@@ -1,32 +1,53 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck00w6icrlubp"]
+[gd_scene load_steps=12 format=3 uid="uid://ck00w6icrlubp"]
 
 [ext_resource type="Script" path="res://Scripts/PushableButton.cs" id="1_ihctd"]
 [ext_resource type="Material" uid="uid://d2dqjmalrgo2n" path="res://Materials/Button.tres" id="1_kuuks"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_myair"]
 [ext_resource type="ArrayMesh" uid="uid://bed7vw28756kn" path="res://Models/Main Menu Button.obj" id="2_agb4q"]
+[ext_resource type="PackedScene" uid="uid://bueeygvlq3wcg" path="res://Scenes/Reaction Time Game.tscn" id="2_pg10g"]
+[ext_resource type="PackedScene" uid="uid://dilvqhylyngtt" path="res://Scenes/Game.tscn" id="3_pvusf"]
 [ext_resource type="Material" uid="uid://ky5fa3vol4rq" path="res://Materials/Menu Text.tres" id="3_yw2o6"]
 [ext_resource type="ArrayMesh" uid="uid://cylpnx7wg7h4m" path="res://Models/Begin 3D Text.obj" id="4_lorju"]
 [ext_resource type="ArrayMesh" uid="uid://ch2c8jstqr6xq" path="res://Models/Exit 3D Text.obj" id="5_sr40g"]
-
+[ext_resource type="FontFile" uid="uid://civh11c6pn5og" path="res://Font/Funnel_Sans/static/FunnelSans-ExtraBold.ttf" id="8_ngnag"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cs4wl"]
 size = Vector3(3.069, 0.62, 1.114)
 
 [node name="Main Menu" type="Node3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.147924, -0.134605, 0, 0.134605, 0.147924, 0, 1.06191, -0.920608)
 script = ExtResource("1_myair")
+reactionGame = ExtResource("2_pg10g")
+frenzyGame = ExtResource("3_pvusf")
 
-[node name="Begin Button" type="Area3D" parent="."]
+[node name="Begin Reaction" type="Area3D" parent="."]
 script = ExtResource("1_ihctd")
 
-[node name="Button" type="MeshInstance3D" parent="Begin Button"]
+[node name="Button" type="MeshInstance3D" parent="Begin Reaction"]
 material_override = ExtResource("1_kuuks")
 mesh = ExtResource("2_agb4q")
 
-[node name="Begin Text" type="MeshInstance3D" parent="Begin Button"]
+[node name="Begin Text" type="MeshInstance3D" parent="Begin Reaction"]
 material_override = ExtResource("3_yw2o6")
 mesh = ExtResource("4_lorju")
 
-[node name="Collider" type="CollisionShape3D" parent="Begin Button"]
+[node name="Collider" type="CollisionShape3D" parent="Begin Reaction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002, 0.19, -0.007)
+shape = SubResource("BoxShape3D_cs4wl")
+
+[node name="Begin Frenzy" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.37938)
+script = ExtResource("1_ihctd")
+
+[node name="Button" type="MeshInstance3D" parent="Begin Frenzy"]
+material_override = ExtResource("1_kuuks")
+mesh = ExtResource("2_agb4q")
+
+[node name="Begin Text" type="MeshInstance3D" parent="Begin Frenzy"]
+material_override = ExtResource("3_yw2o6")
+mesh = ExtResource("4_lorju")
+
+[node name="Collider" type="CollisionShape3D" parent="Begin Frenzy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002, 0.19, -0.007)
 shape = SubResource("BoxShape3D_cs4wl")
 
@@ -46,4 +67,20 @@ mesh = ExtResource("5_sr40g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00244141, 0.188721, -0.00665283)
 shape = SubResource("BoxShape3D_cs4wl")
 
+[node name="Reaction Label" type="Label3D" parent="."]
+transform = Transform3D(0.943037, -1.45422e-08, 0.332688, -0.332688, -4.12215e-08, 0.943037, 0, -1, -4.37114e-08, -2.88323, 0.392546, -0.0178431)
+text = "Reaction"
+font = ExtResource("8_ngnag")
+font_size = 111
+outline_size = 0
+
+[node name="Frenzy" type="Label3D" parent="."]
+transform = Transform3D(0.943037, -1.45422e-08, 0.332688, -0.332688, -4.12215e-08, 0.943037, 0, -1, -4.37114e-08, -2.88323, 0.392546, -1.34715)
+text = "Frenzy"
+font = ExtResource("8_ngnag")
+font_size = 111
+outline_size = 0
+
+[connection signal="ButtonPressed" from="Begin Reaction" to="." method="_on_begin_reaction_button_pressed"]
+[connection signal="ButtonPressed" from="Begin Frenzy" to="." method="_on_begin_frenzy_button_pressed"]
 [connection signal="ButtonPressed" from="Exit Button" to="." method="_on_exit_button_button_pressed"]

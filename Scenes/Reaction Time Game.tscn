@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bueeygvlq3wcg"]
+[gd_scene load_steps=11 format=3 uid="uid://bueeygvlq3wcg"]
 
 [ext_resource type="PackedScene" uid="uid://c1cpwlg4g2am" path="res://Scenes/TextRenderer3D.tscn" id="1_8rgl7"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="2_ym6o2"]
 [ext_resource type="PackedScene" uid="uid://nbxxnerqw1b2" path="res://Scenes/Bubbles/Regular Bubble.tscn" id="3_tvu0d"]
+[ext_resource type="Script" path="res://Scripts/PushableButton.cs" id="4_fufqb"]
+[ext_resource type="Material" uid="uid://d2dqjmalrgo2n" path="res://Materials/Button.tres" id="5_n8ynj"]
+[ext_resource type="ArrayMesh" uid="uid://bed7vw28756kn" path="res://Models/Main Menu Button.obj" id="6_frdh3"]
+[ext_resource type="Material" uid="uid://ky5fa3vol4rq" path="res://Materials/Menu Text.tres" id="7_ygktj"]
+[ext_resource type="ArrayMesh" uid="uid://ch2c8jstqr6xq" path="res://Models/Exit 3D Text.obj" id="8_2keds"]
+[ext_resource type="Script" path="res://Scenes/MenuQuitter.cs" id="9_beufl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6c1i1"]
+size = Vector3(3.069, 0.62, 1.114)
 
 [node name="Game" type="Node3D"]
 
@@ -24,3 +33,24 @@ visible = false
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.198376, 0.980126, 0, -0.980126, 0.198376, 0, 0, 0)
 visible = false
+
+[node name="Exit Button" type="Area3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 7.57103e-08, -0.5, -0.866025, -4.37114e-08, -0.866025, 0.5, 0, 2.72689, 1.36858)
+script = ExtResource("4_fufqb")
+
+[node name="Button" type="MeshInstance3D" parent="Exit Button"]
+material_override = ExtResource("5_n8ynj")
+mesh = ExtResource("6_frdh3")
+
+[node name="Exit Text" type="MeshInstance3D" parent="Exit Button"]
+material_override = ExtResource("7_ygktj")
+mesh = ExtResource("8_2keds")
+
+[node name="Collider" type="CollisionShape3D" parent="Exit Button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00244141, 0.188721, -0.00665283)
+shape = SubResource("BoxShape3D_6c1i1")
+
+[node name="MenuQuitter" type="Node" parent="."]
+script = ExtResource("9_beufl")
+
+[connection signal="ButtonPressed" from="Exit Button" to="MenuQuitter" method="_on_exit_button_button_pressed"]

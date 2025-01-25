@@ -7,6 +7,13 @@ public partial class Bubble : Area3D
 	bool dead = false;
 	float timeInDead = 0.0f;
 
+	public GameManager gameManager;
+
+	public int myWorth;
+
+	// Pop pitch modulation, set by the game manager as it already has a RNG, doing it this way as it saves making an rng object per bubble. 
+	public float pitchModulation;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -14,6 +21,7 @@ public partial class Bubble : Area3D
 			GetNode<AudioStreamPlayer3D>("./PopSFX").Play();
 			GetNode<CpuParticles3D>("./PopParticles").Emitting = true;
 			GetNode<MeshInstance3D>("./Mesh").Hide();
+			gameManager.AddScore(myWorth);
 			dead = true;
 		};
 	}

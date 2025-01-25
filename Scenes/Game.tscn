@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://dilvqhylyngtt"]
 
 [ext_resource type="PackedScene" uid="uid://nbxxnerqw1b2" path="res://Scenes/Bubbles/Regular Bubble.tscn" id="1_pq6uc"]
-[ext_resource type="Script" path="res://Scenes/GameManager.cs" id="2_tc3br"]
+[ext_resource type="Script" path="res://Scripts/GameManager.cs" id="2_enirg"]
 
 [node name="Game" type="Node3D"]
 
 [node name="Bubble" parent="." instance=ExtResource("1_pq6uc")]
 
 [node name="Node" type="Node" parent="."]
-script = ExtResource("2_tc3br")
-regularBubble = ExtResource("1_pq6uc")
-spawnAreaHalfDimentions = Vector3(1, 1, 1)
+script = ExtResource("2_enirg")
+spawnAreaHalfDimentions = Vector3(0.5, 1, 0.5)
 spawnOrigin = Vector3(0, 1, 0)
+spawnSpeed = Vector2(1.5, 3)

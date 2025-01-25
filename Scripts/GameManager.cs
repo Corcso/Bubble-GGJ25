@@ -52,6 +52,10 @@ public partial class GameManager : Node
 				spawnAreaHalfDimentions.Z * rng.RandfRange(-1, 1)
 			);
 
+		newBubble.gameManager = this;
+		newBubble.myWorth = 1;
+		newBubble.pitchModulation = rng.RandfRange(0.9f, 1.1f);
+
 		GetParent().AddChild(newBubble);
 	}
 

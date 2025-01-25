@@ -16,13 +16,13 @@ public partial class PushableButton : Area3D
 	public override void _Ready()
 	{
 		AreaEntered += (Area3D area) => {
-			if (area.GetParent<XRController3D>() != null) {
+			if (area.GetParentOrNull<XRController3D>() != null) {
 				hand = area;
 			}
 		};
 
         AreaExited += (Area3D area) => {
-            if (area.GetParent<XRController3D>() != null)
+            if (area.GetParentOrNull<XRController3D>() != null)
             {
                 hand = null;
                 GlobalPosition = originalPosition; 

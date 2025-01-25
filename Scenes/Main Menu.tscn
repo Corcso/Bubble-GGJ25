@@ -1,12 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://ck00w6icrlubp"]
 
-[ext_resource type="Script" path="res://Scenes/PushableButton.cs" id="1_ihctd"]
+[ext_resource type="Script" path="res://Scripts/PushableButton.cs" id="1_ihctd"]
 [ext_resource type="Material" uid="uid://d2dqjmalrgo2n" path="res://Materials/Button.tres" id="1_kuuks"]
-[ext_resource type="Script" path="res://Scenes/MainMenu.cs" id="1_myair"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_myair"]
 [ext_resource type="ArrayMesh" uid="uid://bed7vw28756kn" path="res://Models/Main Menu Button.obj" id="2_agb4q"]
 [ext_resource type="Material" uid="uid://ky5fa3vol4rq" path="res://Materials/Menu Text.tres" id="3_yw2o6"]
 [ext_resource type="ArrayMesh" uid="uid://cylpnx7wg7h4m" path="res://Models/Begin 3D Text.obj" id="4_lorju"]
 [ext_resource type="ArrayMesh" uid="uid://ch2c8jstqr6xq" path="res://Models/Exit 3D Text.obj" id="5_sr40g"]
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cs4wl"]
 size = Vector3(3.069, 0.62, 1.114)

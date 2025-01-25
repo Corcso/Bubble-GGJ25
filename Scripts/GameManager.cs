@@ -71,7 +71,7 @@ public partial class GameManager : Node
 
 		newBubble.gameManager = this;
 		newBubble.myWorth = 1;
-		newBubble.pitchModulation = rng.RandfRange(0.9f, 1.1f);
+		newBubble.pitchModulation = rng.RandfRange(0.8f, 1.9f);
 		newBubble.XRHeadReference = XRHeadReference;
 
 

@@ -52,7 +52,8 @@ public partial class Bubble : Area3D
 
 	public void Pop(bool playerPopped = false) {
         if (dead) return;
-        if(playerPopped) GetNode<AudioStreamPlayer3D>("./PopSFX").Play();
+        GetNode<AudioStreamPlayer3D>("./PopSFX").PitchScale = pitchModulation;
+        if (playerPopped) GetNode<AudioStreamPlayer3D>("./PopSFX").Play();
         myPopSprite.Show();
         myPopSprite.Play();
         GetNode<MeshInstance3D>("./Mesh").Hide();

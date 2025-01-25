@@ -21,7 +21,6 @@ sky = SubResource("Sky_jj74o")
 [node name="Game Root" type="Node3D"]
 
 [node name="Game" parent="." instance=ExtResource("1_gap5g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0385598, 0.393485, -1.23206)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5pem6")

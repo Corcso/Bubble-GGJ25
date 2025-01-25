@@ -39,6 +39,7 @@ public partial class GameManager : Node
 		if (timeSinceLastSpawn >= timeUntilNextSpawn) {
 			SpawnNewBubble();
             timeUntilNextSpawn = rng.RandfRange(spawnSpeed.X, spawnSpeed.Y);
+			timeSinceLastSpawn = 0;
         }
 	}
 

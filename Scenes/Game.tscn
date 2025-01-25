@@ -9,6 +9,7 @@
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("2_enirg")
+regularBubble = ExtResource("1_pq6uc")
 spawnAreaHalfDimentions = Vector3(0.5, 1, 0.5)
 spawnOrigin = Vector3(0, 1, 0)
-spawnSpeed = Vector2(1.5, 3)
+spawnSpeed = Vector2(0.5, 1.5)

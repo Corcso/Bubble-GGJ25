@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ck00w6icrlubp"]
+[gd_scene load_steps=16 format=3 uid="uid://ck00w6icrlubp"]
 
 [ext_resource type="Script" path="res://Scripts/PushableButton.cs" id="1_ihctd"]
 [ext_resource type="Material" uid="uid://d2dqjmalrgo2n" path="res://Materials/Button.tres" id="1_kuuks"]
@@ -11,12 +11,15 @@
 [ext_resource type="ArrayMesh" uid="uid://ch2c8jstqr6xq" path="res://Models/Exit 3D Text.obj" id="5_sr40g"]
 [ext_resource type="ArrayMesh" uid="uid://fhp81o4g3d5h" path="res://Models/ReeactionText.obj" id="10_3mkwg"]
 [ext_resource type="ArrayMesh" uid="uid://c02qmaufs4o60" path="res://Models/FrenzyText.obj" id="11_imcxu"]
+[ext_resource type="ArrayMesh" uid="uid://dmuceme6by57c" path="res://Models/Title.obj" id="12_jwiyt"]
+[ext_resource type="Material" uid="uid://oxpbad4dxbce" path="res://Materials/Score Text.tres" id="13_8vq6q"]
+[ext_resource type="ArrayMesh" uid="uid://dy2tamd1oydjf" path="res://Models/Subtitle.obj" id="14_xas4a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cs4wl"]
 size = Vector3(3.069, 0.62, 1.114)
 
 [node name="Main Menu" type="Node3D"]
-transform = Transform3D(0.2, 0, 0, 0, 0.147924, -0.134605, 0, 0.134605, 0.147924, 0, 1.06191, -0.920608)
+transform = Transform3D(0.2, 0, 0, 0, 0.1, -0.173205, 0, 0.173205, 0.1, 0, 1.06191, -0.920608)
 script = ExtResource("1_myair")
 reactionGame = ExtResource("2_pg10g")
 frenzyGame = ExtResource("3_pvusf")
@@ -77,6 +80,16 @@ mesh = ExtResource("10_3mkwg")
 transform = Transform3D(0.965925, 0.258819, 0, -0.258819, 0.965925, -2.98023e-08, -2.98023e-08, -2.98023e-08, 1, -3.619, 4.76837e-07, -1.17564)
 material_override = ExtResource("3_yw2o6")
 mesh = ExtResource("11_imcxu")
+
+[node name="Title Label" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866026, -0.134328, 0.382792, -3.02736)
+material_override = ExtResource("3_yw2o6")
+mesh = ExtResource("12_jwiyt")
+
+[node name="Subtitle Label" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866026, -0.134328, 0.382792, -3.02736)
+material_override = ExtResource("13_8vq6q")
+mesh = ExtResource("14_xas4a")
 
 [connection signal="ButtonPressed" from="Begin Reaction" to="." method="_on_begin_reaction_button_pressed"]
 [connection signal="ButtonPressed" from="Begin Frenzy" to="." method="_on_begin_frenzy_button_pressed"]

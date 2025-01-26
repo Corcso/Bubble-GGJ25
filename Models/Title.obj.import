@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dmuceme6by57c"
+path="res://.godot/imported/Title.obj-aec58223b952412c147c32b632670f51.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Title.obj-aec58223b952412c147c32b632670f51.mesh"]
+
+source_file="res://Models/Title.obj"
+dest_files=["res://.godot/imported/Title.obj-aec58223b952412c147c32b632670f51.mesh", "res://.godot/imported/Title.obj-aec58223b952412c147c32b632670f51.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
